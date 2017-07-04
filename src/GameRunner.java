@@ -10,19 +10,18 @@ public class GameRunner {
         GameLogic gameLogic = new GameLogic();
         Field field = new Field();
         System.out.println("Game Started!!!");
-        gameLogic.printField();
-        while (gameLogic.checkGame() == ' ' && gameLogic.canMove()) {
+        while (gameLogic.checkGame() == " " && gameLogic.canMove()) {
             gameLogic.humanMove();
             gameLogic.compMove();
             gameLogic.printField();
         }
-        if (gameLogic.checkGame() == 'X') {
+        if (gameLogic.checkGame().equals("X")) {
             System.out.println("YOU WIN!");
         }
-        if (gameLogic.checkGame() == '0') {
+        if (gameLogic.checkGame().equals("0")) {
             System.out.println("YOU LOSE!");
         }
-        if (gameLogic.checkGame() == ' ' && !gameLogic.canMove()) {
+        if (gameLogic.checkGame() == " "  && !gameLogic.canMove()) {
             System.out.println("STANDOFF!");
         }
     }
