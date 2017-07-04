@@ -1,7 +1,7 @@
 
-        import java.io.BufferedReader;
-        import java.io.IOException;
-        import java.io.InputStreamReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * @author Fominykh Vladimir
@@ -9,7 +9,7 @@
 public class GameLogic {
 
     // Игровое поле
-    public static String[] field = {" "," "," "," "," "," "," "," "," "};
+    public static String[] field = {" ", " ", " ", " ", " ", " ", " ", " ", " "};
 
     // Ход человека
     public static void humanMove() throws IOException {
@@ -50,16 +50,16 @@ public class GameLogic {
             }
 
             if (field[3] == field[4] && field[4] == field[5]
-                        && field[3] != " ") {
-                    winner = field[3];
-                    break;
+                    && field[3] != " ") {
+                winner = field[3];
+                break;
             }
             if (field[6] == field[7] && field[7] == field[8]
-                        && field[6] != " ") {
-                    winner = field[6];
-                    break;
-                }
+                    && field[6] != " ") {
+                winner = field[6];
+                break;
             }
+        }
 
         // Проверка по вертикали если победитель пока не найден
         if (winner == " ") {
@@ -100,9 +100,6 @@ public class GameLogic {
         return winner;
     }
 
-
-
-
     //Следующий метод определяет остались ли еще на игровом поле свободные клетки.
     public static boolean canMove() {
         boolean p = false;
@@ -112,25 +109,9 @@ public class GameLogic {
                 break;
             }
         }
-
-
         return p;
     }
-
-//    public static void printField() {
-//        System.out.println("------");
-//        System.out.println(field[0]+"|"+field[1]+"|"+field[2]);
-//        System.out.println("------");
-//        System.out.println(field[3]+"|"+field[4]+"|"+field[5]);
-//        System.out.println("------");
-//        System.out.println(field[6]+"|"+field[7]+"|"+field[8]);
-//        System.out.println("------");
-        //for (int i = 0; i < 9; i++) {
-
-
-        //}
-       // System.out.println();
-    }
+}
 
 
 
