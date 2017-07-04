@@ -1,6 +1,7 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
+        import java.io.BufferedReader;
+        import java.io.IOException;
+        import java.io.InputStreamReader;
 
 /**
  * @author Fominykh Vladimir
@@ -8,7 +9,7 @@ import java.io.InputStreamReader;
 public class GameLogic {
 
     // Игровое поле
-    public static String[] field = new String[9];
+    public static String[] field = {" "," "," "," "," "," "," "," "," "};
 
     // Ход человека
     public static void humanMove() throws IOException {
@@ -43,45 +44,56 @@ public class GameLogic {
         // Проверка по горизонтали
         for (int i = 0; i < 3; i++) {
             if (field[0] == field[1] && field[1] == field[2]
-                    && field[0] != null) {
+                    && field[0] != " ") {
                 winner = field[0];
                 break;
             }
-        }
+
+            if (field[3] == field[4] && field[4] == field[5]
+                        && field[3] != " ") {
+                    winner = field[3];
+                    break;
+            }
+            if (field[6] == field[7] && field[7] == field[8]
+                        && field[6] != " ") {
+                    winner = field[6];
+                    break;
+                }
+            }
 
         // Проверка по вертикали если победитель пока не найден
-        if (winner == null) {
+        if (winner == " ") {
             for (int i = 0; i < 3; i++) {
                 if (field[0] == field[3] && field[3] == field[6]
-                        && field[0] != null) {
+                        && field[0] != " ") {
                     winner = field[0];
                     break;
                 }
-                if (field[3] == field[4] && field[4] == field[5]
-                        && field[0] != null) {
-                    winner = field[0];
+                if (field[1] == field[4] && field[4] == field[7]
+                        && field[0] != " ") {
+                    winner = field[1];
                     break;
                 }
-                if (field[6] == field[7] && field[7] == field[8]
-                        && field[0] != null) {
-                    winner = field[0];
+                if (field[2] == field[5] && field[5] == field[8]
+                        && field[0] != " ") {
+                    winner = field[2];
                     break;
                 }
             }
         }
 
         // Проверка главной диагонали если победитель пока не найден
-        if (winner == null) {
+        if (winner == " ") {
             if (field[0] == field[4] && field[4] == field[8]
-                    && field[0] != null) {
+                    && field[0] != " ") {
                 winner = field[0];
             }
         }
 
         // Проверка побочной диагонали если победитель пока не найден
-        if (winner == null) {
+        if (winner == " ") {
             if (field[2] == field[4] && field[4] == field[6]
-                    && field[2] != null) {
+                    && field[2] != " ") {
                 winner = field[2];
             }
         }
@@ -95,24 +107,31 @@ public class GameLogic {
     public static boolean canMove() {
         boolean p = false;
         for (int i = 0; i < 9; i++) {
-                if (field[i] == null) {
-                    p = true;
-                    break;
-                }
+            if (field[i] == " ") {
+                p = true;
+                break;
             }
+        }
 
 
         return p;
     }
 
-    public static void printField() {
-        for (int i = 0; i < 9; i++) {
+//    public static void printField() {
+//        System.out.println("------");
+//        System.out.println(field[0]+"|"+field[1]+"|"+field[2]);
+//        System.out.println("------");
+//        System.out.println(field[3]+"|"+field[4]+"|"+field[5]);
+//        System.out.println("------");
+//        System.out.println(field[6]+"|"+field[7]+"|"+field[8]);
+//        System.out.println("------");
+        //for (int i = 0; i < 9; i++) {
 
-                System.out.print(field[i]);
-            }
-            System.out.println();
-        }
+
+        //}
+       // System.out.println();
     }
+
 
 
 

@@ -13,7 +13,7 @@ public class GameRunner {
         while (gameLogic.checkGame() == " " && gameLogic.canMove()) {
             gameLogic.humanMove();
             gameLogic.compMove();
-            gameLogic.printField();
+            Field.printField();
         }
         if (gameLogic.checkGame().equals("X")) {
             System.out.println("YOU WIN!");
@@ -21,11 +21,10 @@ public class GameRunner {
         if (gameLogic.checkGame().equals("0")) {
             System.out.println("YOU LOSE!");
         }
-        if (gameLogic.checkGame() == " "  && !gameLogic.canMove()) {
+        if (gameLogic.checkGame() == null  && !gameLogic.canMove()) {
             System.out.println("STANDOFF!");
         }
     }
 
 
 }
-
