@@ -102,7 +102,7 @@ public class Field {
         String cell = cells[n];
         switch (cell) {
             case EMPTY_CELL:
-                System.out.print("  " + " " + "  ");
+                System.out.print("  " + n + "  ");
                 break;
             case CROSS_CELL:
                 System.out.print("  " + "X" + "  ");
