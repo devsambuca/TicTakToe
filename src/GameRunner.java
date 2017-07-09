@@ -7,24 +7,36 @@ import java.io.InputStreamReader;
  */
 public class GameRunner {
     public static void main(String[] args) throws IOException {
-        GameLogic gameLogic = new GameLogic();
-        Field field = new Field();
+
         System.out.println("Game Started!!!");
-        while (gameLogic.checkGame() == " " && gameLogic.canMove()) {
-            gameLogic.humanMove();
-            gameLogic.compMove();
-            Field.printField();
-        }
-        if (gameLogic.checkGame().equals("X")) {
-            System.out.println("YOU WIN!");
-        }
-        if (gameLogic.checkGame().equals("0")) {
-            System.out.println("YOU LOSE!");
-        }
-        if (gameLogic.checkGame() == null  && !gameLogic.canMove()) {
-            System.out.println("STANDOFF!");
-        }
+        GameLogic game = new GameLogic();
+        do {
+
+            game.play();
+
+        } while (game.isRunning());
     }
-
-
 }
+
+
+
+
+
+
+//        while (gameLogic.checkGame() == " " && gameLogic.canMove()) {
+//            gameLogic.humanMove();
+//            gameLogic.compMove();
+//            Field.printField();
+//        }
+//        if (gameLogic.checkGame().equals("X")) {
+//            System.out.println("YOU WIN!");
+//        }
+//        if (gameLogic.checkGame().equals("0")) {
+//            System.out.println("YOU LOSE!");
+//        }
+//        if (gameLogic.checkGame() == null  && !gameLogic.canMove()) {
+//            System.out.println("STANDOFF!");
+//        }
+//    }
+
+
